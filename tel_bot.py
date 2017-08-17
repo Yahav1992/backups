@@ -1,5 +1,6 @@
 import telepot
 import logging
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -15,6 +16,7 @@ class StockNasBot(object):
         logging.info('Message is: [%s]', message)
         self.StockBot.sendMessage(self.ChannelId, message)
         logging.info('Sent to channel')
+
 
 if __name__ == "__main__":
     bot = StockNasBot()
