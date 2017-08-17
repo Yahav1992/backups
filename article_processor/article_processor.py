@@ -46,9 +46,9 @@ class Processor:
             if neg_point > pos_point:
                 return (0, neg_point / (pos_point + neg_point))
 
-            return
+            return (-1, 1)
 
         except Exception, e:
-            print e
+            raise e
 
 
