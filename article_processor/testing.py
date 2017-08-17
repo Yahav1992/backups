@@ -18,7 +18,6 @@ test_set = [
 
  ]
 
-
 for t in test_set:
     res = None
     while res is None:
