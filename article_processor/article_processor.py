@@ -2,7 +2,7 @@ from aylienapiclient import textapi
 
 class Processor:
     def __init__(self):
-        self.client = textapi.Client("dc573498", " 341b6e08b058dca857a2acf0128d31a1")
+        self.client = textapi.Client("0037742b", "8b50b7ab13f2d87d915aa88b6ba8699a")
 
     def _words_in_sentence(self, words, sentence):
         counter = 0

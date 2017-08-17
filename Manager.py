@@ -15,7 +15,6 @@ process = CrawlerProcess({
 process.crawl(NasSpider)
 process.start()
 
-
 with open('result.json') as data_file:
     data = json.load(data_file)
     for link in data:
@@ -31,10 +30,6 @@ with open('result.json') as data_file:
                 print res
 
             except Exception, e:
+                if "Too Many " in e.content:
+                    print 'Renew user'
                 res = None
-
-
-
-
-
-
