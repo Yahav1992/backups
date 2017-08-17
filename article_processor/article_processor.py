@@ -29,7 +29,7 @@ class Processor:
             # if there is points
 
             # absolut accourance of type of words
-            if pos_point > 2*neg_point:
+            if pos_point - neg_point > neg_point and pos_point - neg_point > 3:
                 if nlp_decision is 0:
                     return (-1, 1)
                 return (1, pos_point/(pos_point + neg_point))
@@ -52,7 +52,7 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "https://seekingalpha.com/article/4099145-blockchain-ibms-comeback"
+        #url = "https://seekingalpha.com/article/4099361-ibm-value-trap"
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding",
                "bullish", "attractive", "growth"]
@@ -70,14 +70,6 @@ class Processor:
                 text += sen + " "
 
             sentiment = self.client.Sentiment({'text': text.encode('utf-8'), 'mode': 'document'})
-
-            if pos_point + neg_point > 0:
-                if sentiment['polarity'] == 'positive':
-                        pos_point += (pos_point + neg_point)*sentiment['polarity_confidence']
-                if sentiment['polarity'] == 'negative':
-                        neg_point += (pos_point + neg_point) * sentiment['polarity_confidence']
-            else:
-                return (sentiment['polarity'] == 'positive', sentiment['polarity_confidence'])
 
             return self._decide(pos_point, neg_point, sentiment['polarity'], sentiment['polarity_confidence'])
 
