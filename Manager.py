@@ -1,4 +1,5 @@
 from scrapy.crawler import CrawlerProcess
+from tel_bot import StockNasBot
 from article_processor.article_processor import Processor
 from scraper import NasSpider
 import json
