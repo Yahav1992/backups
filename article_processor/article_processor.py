@@ -19,15 +19,15 @@ class Processor:
         """
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you"]
-        neg = []
+        neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk"]
         pos_point = 0
         neg_point = 0
         try:
             summary = self.client.Summarize({'url': url, 'sentences_number': 5})
             text = u""
             for sen in summary["sentences"]:
-                pos_point += self._words_in_sentence(pos, sen)
-                neg_point += self._words_in_sentence(neg, sen)
+                pos_point += self._words_in_sentence(pos, sen.lower())
+                neg_point += self._words_in_sentence(neg, sen.lower())
                 text += sen + " "
 
             sentiment = self.client.Sentiment({'text': text.encode('utf-8'), 'mode': 'document'})

@@ -2,7 +2,8 @@
 from article_processor import Processor
 
 test_set = [
-    (r"http://www.nasdaq.com/article/the-3-top-stocks-for-your-ira-in-august-cm830110", 1)
+    (r"http://www.nasdaq.com/article/the-3-top-stocks-for-your-ira-in-august-cm830110", 1),
+    (r"https://seekingalpha.com/article/4099116-ibm-watson-disappointment-risks-downward-revisions", 0)
  ]
 
 
