@@ -30,6 +30,8 @@ class Processor:
 
             # absolut accourance of type of words
             if pos_point > 2*neg_point:
+                if nlp_decision is 0:
+                    return (-1, 1)
                 return (1, pos_point/(pos_point + neg_point))
             if neg_point > pos_point:
                 return (0, neg_point/(pos_point + neg_point))
@@ -50,13 +52,13 @@ class Processor:
         :param url:
         :return:
         """
-        url = "https://seekingalpha.com/article/4099116-ibm-watson-disappointment-risks-downward-revisions"
+        #url = "https://seekingalpha.com/article/4099145-blockchain-ibms-comeback"
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding",
                "bullish", "attractive", "growth"]
         neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk",
                "struggling", "spending", "berish", "falling", "fails", "bearish", "risky", "dropping",
-               "negative", "decline", "troubling", "low", "disappointing"]
+               "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However"]
         pos_point = 0
         neg_point = 0
         try:
