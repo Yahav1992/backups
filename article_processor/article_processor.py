@@ -52,10 +52,10 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "https://seekingalpha.com/article/4099361-ibm-value-trap"
+        #url = "https://seekingalpha.com/article/4099145-blockchain-ibms-comeback"
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding",
-               "bullish", "attractive", "growth"]
+               "bullish", "attractive", "growth", "safe"]
         neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk",
                "struggling", "spending", "berish", "falling", "fails", "bearish", "risky", "dropping",
                "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However"]
