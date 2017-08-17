@@ -2,7 +2,7 @@ from aylienapiclient import textapi
 
 class Processor:
     def __init__(self):
-        self.client = textapi.Client("0037742b", "8b50b7ab13f2d87d915aa88b6ba8699a")
+        self.client = textapi.Client("f7f31763", "7a08dc3d0436cc159b6ca26b5c1b9c81")
 
     def _words_in_sentence(self, words, sentence):
         counter = 0
@@ -30,14 +30,14 @@ class Processor:
 
             # absolut accourance of type of words
             if pos_point - neg_point > neg_point and pos_point - neg_point > 3:
-                if nlp_decision is 0:
+                if nlp_decision is 0 and nlp_confidence > 0.80:
                     return (-1, 1)
                 return (1, pos_point/(pos_point + neg_point))
             if neg_point > pos_point:
                 return (0, neg_point/(pos_point + neg_point))
 
-            if pos_point > neg_point:
-                if nlp_decision is 1:
+            if pos_point >= neg_point:
+                if nlp_decision == 1:
                     return (1, nlp_confidence)
                 else:
                     return (-1, 1)
@@ -52,10 +52,10 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "https://seekingalpha.com/article/4099145-blockchain-ibms-comeback"
+        #url = "http://www.nasdaq.com/article/the-2-safest-dividend-stocks-to-buy-in-tech-cm832258"
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding",
-               "bullish", "attractive", "growth", "safe"]
+               "bullish", "attractive", "growth", "safe", "dominant"]
         neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk",
                "struggling", "spending", "berish", "falling", "fails", "bearish", "risky", "dropping",
                "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However"]
@@ -71,7 +71,7 @@ class Processor:
 
             sentiment = self.client.Sentiment({'text': text.encode('utf-8'), 'mode': 'document'})
 
-            return self._decide(pos_point, neg_point, sentiment['polarity'], sentiment['polarity_confidence'])
+            return self._decide(pos_point, neg_point, sentiment['polarity'] == 'positive', sentiment['polarity_confidence'])
 
 
 
