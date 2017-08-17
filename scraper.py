@@ -8,8 +8,6 @@ class NasSpider(scrapy.Spider):
 
     def __init__(self, category=None, *args, **kwargs):
         super(NasSpider, self).__init__(*args, **kwargs)
-        print args, kwargs
-        print category
         if not isinstance(category, basestring):
             self.start_urls = ['http://www.nasdaq.com/symbol/%s/news-headlines?page=1' % category[0]]
         else:
