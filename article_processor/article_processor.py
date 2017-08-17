@@ -19,7 +19,7 @@ class Processor:
         """
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding"]
-        neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk", "struggling"]
+        neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk", "struggling", "spending"]
         pos_point = 0
         neg_point = 0
         try:
