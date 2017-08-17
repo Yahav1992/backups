@@ -2,7 +2,7 @@ from aylienapiclient import textapi
 
 class Processor:
     def __init__(self):
-        self.client = textapi.Client("f7f31763", "7a08dc3d0436cc159b6ca26b5c1b9c81")
+        self.client = textapi.Client("0b0fa09c", "aacc3942a31a7d3633ae4c24ef64bf8a")
 
     def _words_in_sentence(self, words, sentence):
         counter = 0
@@ -39,6 +39,8 @@ class Processor:
             if pos_point >= neg_point:
                 if nlp_decision == 1 and nlp_confidence > 0.8 and neg_point < 3:
                     return (1, nlp_confidence)
+                elif neg_point >= 3:
+                    return (0, 1)
                 else:
                     return (-1, 1)
             else:
@@ -52,13 +54,15 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "http://www.nasdaq.com/article/the-2-safest-dividend-stocks-to-buy-in-tech-cm832258"
+        #url = "http://www.nasdaq.com/article/volatility-etfs-in-focus-as-trump-rally-fizzles-out-cm733427"
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding",
                "bullish", "attractive", "growth", "safe", "dominant", "gains", "impressive", "greatest", "benefit", "winners"]
         neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk",
                "struggling", "spending", "berish", "falling", "fails", "bearish", "risky", "dropping",
-               "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However"]
+               "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However", "fallen",
+               "underperformed", "down", "poor", "away", "worst", "warned", "anti"
+               ]
         pos_point = 0
         neg_point = 0
         try:

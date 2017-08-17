@@ -31,7 +31,7 @@ for t in test_set:
     res = None
     while res is None:
         try:
-            if "bump" in t[0]:
+            if "trump" in t[0]:
                 pass
             c = Processor()
             res = c.process(t[0])
