@@ -24,20 +24,20 @@ class Processor:
             if nlp_confidence > 0.95 and nlp_decision is 1:
                 return (1, nlp_confidence)
             else:
-                return (-1, 1)
+                return (0, 1)
         else:
             # if there is points
 
             # absolut accourance of type of words
             if pos_point - neg_point > neg_point and pos_point - neg_point > 3:
-                if nlp_decision is 0 and nlp_confidence > 0.80:
+                if nlp_decision is 0 and nlp_confidence > 0.8:
                     return (-1, 1)
                 return (1, pos_point/(pos_point + neg_point))
             if neg_point > pos_point:
                 return (0, neg_point/(pos_point + neg_point))
 
             if pos_point >= neg_point:
-                if nlp_decision == 1:
+                if nlp_decision == 1 and nlp_confidence > 0.8 and neg_point < 3:
                     return (1, nlp_confidence)
                 else:
                     return (-1, 1)
@@ -55,7 +55,7 @@ class Processor:
         #url = "http://www.nasdaq.com/article/the-2-safest-dividend-stocks-to-buy-in-tech-cm832258"
         pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
                "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding",
-               "bullish", "attractive", "growth", "safe", "dominant"]
+               "bullish", "attractive", "growth", "safe", "dominant", "gains", "impressive", "greatest", "benefit", "winners"]
         neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk",
                "struggling", "spending", "berish", "falling", "fails", "bearish", "risky", "dropping",
                "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However"]
