@@ -4,6 +4,8 @@ from scraper import NasSpider
 import json
 import os
 
+
+
 if os.path.exists(r"result.json"):
     os.remove(r"result.json")
 
@@ -14,6 +16,9 @@ process = CrawlerProcess({
 })
 process.crawl(NasSpider)
 process.start()
+
+bot = StockNasBot()
+
 
 with open('result.json') as data_file:
     data = json.load(data_file)
@@ -27,6 +32,9 @@ with open('result.json') as data_file:
                 res = c.process(url)
                 if res is None:
                     raise Exception()
+
+                if res[0] == 1:
+                    bot.sendmessage('you should buy Stock VIIX  {}'.format(url))
                 print res
 
             except Exception, e:
