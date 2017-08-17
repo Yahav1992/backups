@@ -3,7 +3,7 @@ from scrapy.crawler import CrawlerProcess
 
 class NasSpider(scrapy.Spider):
     name = "nas_spider"
-    start_urls = ['http://www.nasdaq.com/symbol/ibm/news-headlines?page=1']
+    start_urls = ['http://www.nasdaq.com/symbol/viix/news-headlines?page=1']
 
     def parse(self, response):
         SET_SELECTOR='.news-headlines'

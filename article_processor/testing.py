@@ -4,7 +4,7 @@ from article_processor import Processor
 test_set = [
     (r"http://www.nasdaq.com/article/the-3-top-stocks-for-your-ira-in-august-cm830110", 1),
     (r"https://seekingalpha.com/article/4099116-ibm-watson-disappointment-risks-downward-revisions", 0),
-    (r"https://seekingalpha.com/article/4099145-blockchain-ibms-comeback", 1),
+    (r"https://seekingalpha.com/article/4099145-blockchain-ibms-comeback", -1),
     (r"http://marketrealist.com/2017/08/how-alphabet-is-tackling-its-cloud-competition/", -1),
     (r"https://seekingalpha.com/article/4099361-ibm-value-trap", -1),
     (r"http://www.nasdaq.com/article/the-3-top-stocks-for-your-ira-in-august-cm830110", 1),
@@ -18,7 +18,13 @@ test_set = [
     (r"http://www.nasdaq.com/article/3-stocks-that-look-just-like-activision-blizzard-in-2013-cm832133",1),
     (r"http://www.nasdaq.com/article/should-you-invest-in-intel-intc-now-cm831870",-1),
     (r"https://seekingalpha.com/article/4099518-cogint-second-largest-holding?source=nasdaq",1),
-    (r"http://www.investopedia.com/news/warren-buffett-enters-synchrony-financial-adds-bank-new-york-mellon-13f-berkshire-hathaway/?utm_campaign=quote-nasdaq&utm_source=nasdaq&utm_medium=referral&utm_term=fb-capture&utm_content=/#ec|rss-nasdaq",0)
+    (r"http://www.investopedia.com/news/warren-buffett-enters-synchrony-financial-adds-bank-new-york-mellon-13f-berkshire-hathaway/?utm_campaign=quote-nasdaq&utm_source=nasdaq&utm_medium=referral&utm_term=fb-capture&utm_content=/#ec|rss-nasdaq",0),
+    (r"http://www.nasdaq.com/article/worst-performing-etfs-so-far-this-year-cm772238", 0),
+    (r"http://www.nasdaq.com/article/profit-from-the-trump-bump-with-volatility-etfs-cm740933", 1),
+    (r"http://www.nasdaq.com/article/volatility-etfs-in-focus-as-trump-rally-fizzles-out-cm733427", 0),
+    (r"http://www.nasdaq.com/article/why-investors-continue-to-pour-money-into-vix-etfs-cm723593", 1),
+    (r"http://www.nasdaq.com/article/etf-launches-set-new-monthly-annual-records-cm688025", 0),
+    (r"http://www.nasdaq.com/article/volatility-small-cap-india-2-etfs-trading-with-outsized-volume-cm685237", -1)
 ]
 
 for t in test_set:
