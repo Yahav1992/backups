@@ -2,6 +2,7 @@ import scrapy
 import time
 from scrapy.crawler import CrawlerProcess
 
+arr = []
 
 class NasSpider(scrapy.Spider):
     name = "nas_spider"
@@ -12,8 +13,10 @@ class NasSpider(scrapy.Spider):
             self.start_urls = ['http://www.nasdaq.com/symbol/%s/news-headlines?page=1' % category[0]]
         else:
             self.start_urls = ['http://www.nasdaq.com/symbol/%s/news-headlines?page=1' % category]
+        self.category = category
 
     def parse(self, response):
+        arr.append(self.category if isinstance(self.category, basestring) else self.category[0])
         SET_SELECTOR = '.news-headlines'
         for headline in response.css(SET_SELECTOR):
             LINK_SELECTOR = '.fontS14px'
