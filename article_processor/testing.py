@@ -24,7 +24,15 @@ test_set = [
     (r"http://www.nasdaq.com/article/volatility-etfs-in-focus-as-trump-rally-fizzles-out-cm733427", 0),
     (r"http://www.nasdaq.com/article/why-investors-continue-to-pour-money-into-vix-etfs-cm723593", 1),
     (r"http://www.nasdaq.com/article/etf-launches-set-new-monthly-annual-records-cm688025", 0),
-    (r"http://www.nasdaq.com/article/volatility-small-cap-india-2-etfs-trading-with-outsized-volume-cm685237", -1)
+    (r"http://www.nasdaq.com/article/volatility-small-cap-india-2-etfs-trading-with-outsized-volume-cm685237", -1),
+    # Alon in
+    (r"http://www.nasdaq.com/article/why-tesla-inc-stock-jumped-on-thursday-cm826633", 1),
+    (r"http://www.nasdaq.com/article/nasdaq-100-movers-holx-tsla-cm826541", 1),
+    (r"http://www.nasdaq.com/article/tesla-drops-after-musk-warns-of-manufacturing-hell-20170731-01103", -1),
+    (r"http://www.nasdaq.com/article/tesla-inc-tsla-ceo-elon-musk-admits-tsla-stock-is-overpriced-cm818213", -1),
+    (r"http://www.nasdaq.com/article/highspeed-hyperloop-project-ready-for-key-test-in-nevada-20170713-01307", 0),
+    (r"http://www.nasdaq.com/article/3-ways-ai-can-boost-nvidia-cm815318", 0)
+    # Alon out
 ]
 
 for t in test_set:
