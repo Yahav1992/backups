@@ -45,13 +45,15 @@ class Processor:
                 if nlp_decision is 0 and nlp_confidence > 0.8:
                     return (-1, 1)
                 return (1, pos_point/(pos_point + neg_point))
-            if neg_point > pos_point:
+            if neg_point > pos_point and neg_point > 1:
                 return (0, neg_point/(pos_point + neg_point))
+            else:
+                return (-1, neg_point / (pos_point + neg_point))
 
             if pos_point >= neg_point:
                 if nlp_decision == 1 and nlp_confidence > 0.8 and neg_point < 3:
                     return (1, nlp_confidence)
-                elif neg_point >= 3:
+                elif neg_point >= 3 and nlp_decision !=  1:
                     return (0, 1)
                 else:
                     return (-1, 1)
@@ -66,7 +68,7 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "http://www.nasdaq.com/article/volatility-etfs-in-focus-as-trump-rally-fizzles-out-cm733427"
+        #url = "http://www.nasdaq.com/article/the-zacks-analyst-blog-highlights-intel-microsoft-cisco-ibm-and-nvidia-cm832306"
 
         pos_point = 0
         neg_point = 0
