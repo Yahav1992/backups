@@ -68,7 +68,7 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "http://www.nasdaq.com/article/the-zacks-analyst-blog-highlights-intel-microsoft-cisco-ibm-and-nvidia-cm832306"
+        #url = "http://www.nasdaq.com/article/nasdaq-100-movers-holx-tsla-cm826541"
 
         pos_point = 0
         neg_point = 0
