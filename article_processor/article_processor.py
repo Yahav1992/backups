@@ -70,7 +70,7 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "http://www.nasdaq.com/article/sap-collaborates-with-ibm-to-revolutionize-procurement-cm791324"
+        #url = "http://www.nasdaq.com/article/ibm-aig-pilot-blockchain-product-for-multiline-insurance-cm804469"
 
         pos_point = 0
         neg_point = 0
