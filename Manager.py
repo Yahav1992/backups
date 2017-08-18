@@ -4,6 +4,7 @@ from article_processor.article_processor import Processor
 from scraper import NasSpider
 import json
 import os
+from email_sender import send_email
 
 
 if os.path.exists("result.json"):
@@ -54,6 +55,7 @@ with open('result.json') as data_file:
                 if res[0] == 1:
                     #bot.sendmessage('you should buy Stock VIIX  {}'.format(url))
                     print "You should buy %s" % sym
+                    #send_email(r"yahav7rubin@gmail.com",sym,format(url))
                 print res
 
             except Exception, e:
