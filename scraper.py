@@ -11,8 +11,10 @@ class NasSpider(scrapy.Spider):
         super(NasSpider, self).__init__(*args, **kwargs)
         if not isinstance(category, basestring):
             self.start_urls = ['http://www.nasdaq.com/symbol/%s/news-headlines?page=1' % category[0]]
+            self.start_urls = ['http://www.nasdaq.com/symbol/%s/news-headlines?page=29' % category[0]]
         else:
             self.start_urls = ['http://www.nasdaq.com/symbol/%s/news-headlines?page=1' % category]
+            self.start_urls = ['http://www.nasdaq.com/symbol/%s/news-headlines?page=29' % category[0]]
         self.category = category
 
     def parse(self, response):
