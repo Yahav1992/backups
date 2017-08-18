@@ -10,7 +10,7 @@ class Processor:
            "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However", "fallen",
            "underperformed", "down", "poor", "away", "worst", "warned", "anti"]
     def __init__(self):
-        self.client = textapi.Client("0b0fa09c", "aacc3942a31a7d3633ae4c24ef64bf8a")
+        self.client = textapi.Client("e45403ac", "47ca2e37688fdd70649a13e7d1462570")
 
     def _words_in_sentence(self, words, sentence):
         counter = 0

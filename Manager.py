@@ -40,23 +40,43 @@ bot = StockNasBot()
 
 with open('result.json') as data_file:
     data = json.load(data_file)
-    for link in data:
-        print link
-        url = link["link"]
-        res = None
-        while res is None:
-            try:
-                c = Processor()
-                res = c.process(url)
-                if res is None:
-                    raise Exception()
+    index = 0
+    for array in data:
+        for link in array:
+            print link
+            towriteflag = 0
+            url = link["link"]
+            # Check url in file
 
-                if res[0] == 1:
-                    #bot.sendmessage('you should buy Stock VIIX  {}'.format(url))
-                    print "You should buy %s" % sym
-                print res
+            if os.path.exists('history.json'):
+                with open('history.json', 'r+' ) as historyfile:
+                    historydata = json.load(historyfile)
 
-            except Exception, e:
-                if "Too Many " in e.content:
-                    print "Renew user"
-                res = None
+                if url in historydata:
+                    continue
+            res = None
+            while res is None:
+                try:
+                    c = Processor()
+                    res = c.process(url)
+                    if res is None:
+                        raise Exception()
+
+                    urldict = {url: res}
+                    if historydata is not None:
+                        historydata.update(urldict)
+                        with open('history.json', 'w') as historyfile:
+                            json.dump(historydata, historyfile)
+                    else:
+                        raise ValueError()
+                    if res[0] == 1:
+                        bot.sendmessage('You should buy stock {}  {}'.format(symbList[index], url))
+                        #print "You should buy %s" % sym[index]
+                    print res
+
+                except Exception, e:
+                    if hasattr(e, 'content'):
+                        if "Too Many " in e.content:
+                            print "Renew user"
+                    res = None
+        index += 1
