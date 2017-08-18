@@ -8,7 +8,7 @@ class Processor:
     neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk",
            "struggling", "spending", "berish", "falling", "fails", "bearish", "risky", "dropping",
            "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However", "fallen",
-           "underperformed", "down", "poor", "away", "worst", "warned", "anti"]
+           "underperformed", "down", "poor", "away", "worst", "warned", "anti", "fall"]
     def __init__(self):
         self.client = textapi.Client("3cd69ba8", "94abc89fc93b8a3392dbc6cd953f48d7")
 
