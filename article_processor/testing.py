@@ -39,19 +39,17 @@ for t in test_set:
     res = None
     while res is None:
         try:
-            if "trump" in t[0]:
-                pass
             c = Processor()
             res = c.process(t[0])
             if res is None:
                 raise Exception()
             if res[0] != t[1]:
-                """
+
                 if t[1] is -1 or t[1] is 0:
                     if res[0] is -1 or res[0] is 0:
                         print 'GOOD in url: {} \n excepted : {} given {}'.format(t[0], t[1], res[0])
                         continue
-                """
+
                 print 'ERROR in url: {} \n excepted : {} given {}'.format(t[0], t[1], res[0])
             else:
                 print 'GOOD in url: {} \n excepted : {} given {}'.format(t[0], t[1], res[0])

@@ -4,13 +4,13 @@ class Processor:
     pos = ["grow", "potential", "growth", "economic necessity", "increased demand", "growing", "evolving",
            "major growth", "impressive", "good", "rise", "top stocks for you", "high-yielding",
            "bullish", "attractive", "growth", "safe", "dominant", "gains", "impressive", "greatest", "benefit",
-           "winners"]
+           "winners", "increased", "on track", "improve", "announced", "solution"]
     neg = ["down", "lower", "disappointing", "disappoint", "wrong", "disappointment", "downside", "risk",
            "struggling", "spending", "berish", "falling", "fails", "bearish", "risky", "dropping",
-           "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "However", "fallen",
-           "underperformed", "down", "poor", "away", "worst", "warned", "anti"]
+           "negative", "decline", "troubling", "low", "disappointing", "risk", "wrong", "however", "fallen",
+           "underperformed", "down", "poor", "away", "worst", "warned", "anti", "fall"]
     def __init__(self):
-        self.client = textapi.Client("e45403ac", "47ca2e37688fdd70649a13e7d1462570")
+        self.client = textapi.Client("3cd69ba8", "94abc89fc93b8a3392dbc6cd953f48d7")
 
     def _words_in_sentence(self, words, sentence):
         counter = 0
@@ -47,6 +47,8 @@ class Processor:
                 return (1, pos_point/(pos_point + neg_point))
             if neg_point > pos_point and neg_point > 1:
                 return (0, neg_point/(pos_point + neg_point))
+            elif nlp_decision == 1:
+                return (1, nlp_confidence)
             else:
                 return (-1, neg_point / (pos_point + neg_point))
 
@@ -68,7 +70,7 @@ class Processor:
         :param url:
         :return:
         """
-        #url = "http://www.nasdaq.com/article/the-zacks-analyst-blog-highlights-intel-microsoft-cisco-ibm-and-nvidia-cm832306"
+        #url = "http://www.nasdaq.com/article/ibm-aig-pilot-blockchain-product-for-multiline-insurance-cm804469"
 
         pos_point = 0
         neg_point = 0
