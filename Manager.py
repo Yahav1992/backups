@@ -21,6 +21,8 @@ for sym in symbList:
     process.crawl(spider, [sym])
 process.start()
 
+
+
 with open('result.json', 'r+') as datafile:
     lines = datafile.readlines()
     datafile.seek(0)
