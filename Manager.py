@@ -70,7 +70,7 @@ with open('result.json') as data_file:
                     else:
                         raise ValueError()
                     if res[0] == 1:
-                        bot.sendmessage('You should buy stock {}  {}'.format(symbList[index], url))
+                        bot.sendmessage('You should buy stock {}  {}'.format(symbList[len(symbList)- index], url))
                         #print "You should buy %s" % sym[index]
                     print res
 
